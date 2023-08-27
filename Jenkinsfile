@@ -1,9 +1,11 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'python:3.11.4-alpine3.18' } }
+    agent { dockerfile true }
     stages {
         stage('build') {
             steps {
+                sh 'node --version'
+                sh 'svn --version'
                 sh 'python --version'
                 sh 'echo "starting uvicorn server dev mode..."'
                 sh 'pip install uvicorn'
