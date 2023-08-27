@@ -5,7 +5,8 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
-                sh 'echo "starting uciorn server dev mode..."'
+                sh 'echo "starting uvicorn server dev mode..."'
+                sh 'pip install uvicorn'
                 sh 'uvicorn main:app --reload'
             }
         }
